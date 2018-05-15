@@ -7,6 +7,7 @@
 src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="../js/showCards.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 </head>
   <body>
     <div id="container">  
@@ -58,15 +59,15 @@ src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></scri
                             $("#story").val($.urlParam('story'));
                             $("#url").val("localhost:4001/ShowCards.html?id="+$.urlParam('id')
                             +"&scrum="+$.urlParam('scrum')+"&story="+$.urlParam('story'));
-                           // +"&count="+$.urlParam('count'));
+                            var clip = new ClipboardJS('.btn');
+                            clip.on('success', function(e) {
+                                alert('URL Copied');
+                            });
                             });
                     </script>
                 <hr>
                 <input id="id" type="hidden" value="" name="id" readonly>
                 <input id="number" type="hidden" value="" name="number" readonly>
-
-                <label for="count"><b>Total number of peple joined</b></label>
-                <input id="count" type="text" value="" name="count" readonly>
 
                 <label for="scrum"><b>Scrum Name</b></label>
                 <input id="scrum" type="text" value="" name="scrum" readonly>
@@ -77,7 +78,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></scri
                 <label for="member"><b>Team Member</b></label>
                 <input id="member" type="text" value="" name="member" >
 
-                <label for="url"><b>URL to share</b></label>
+                <button class="btn cancelbtn" data-clipboard-target="#url">Copy URL to share</button>
                 <input id="url" type="text" value="" name="url" readonly>  
 
                 <div class="clearfix">

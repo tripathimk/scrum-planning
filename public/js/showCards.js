@@ -91,22 +91,13 @@ function createTable(data){
   
     $('#showCards').hide();
     $('#showPoints').css('display', 'inline-block');
- 
     $('#showPoints').html('');
-    
-
 
     var mytable = $('<table></table>').attr({ id: "basicTable" });
-
     var memberCount = data.iterations[0].members.length;
-
-    //var rows = Math.ceil(memberCount/4);
     var tr = [];
-    //var row = $('<tr></tr>').attr({ class: ["class1", "class2", "class3"].join(' ') }).appendTo(mytable);
-    //var row;
     for(var i = 0; i < memberCount; i++)
     {
-        //alert('i-->'+i);
         if(i%4 == 0)
         {
           var row = $('<tr></tr>').attr({ class: ["class1", "class2", "class3"].join(' ') }).appendTo(mytable);
@@ -117,19 +108,7 @@ function createTable(data){
             "<h4 class='card-title'>"+ data.iterations[0].members[
                 i].point+"</h4>"+
             "<p class='card-text'>"+ data.iterations[0].members[i].name +"</p></div></div>").appendTo(row);
-        
-
     }
-    /*for (var i = 0; i < rows; i++) {
-        var row = $('<tr></tr>').attr({ class: ["class1", "class2", "class3"].join(' ') }).appendTo(mytable);
-        for (var j = 0; j < memberCount; j++) {
-            $('<td></td>').append("<div class='card bg-info text-white' "+
-            "style='width:150px;height:200px'>"+
-            "<div class='card-body'>"+
-            "<h4 class='card-title'>"+ data.iterations[0].members[j].point+"</h4>"+
-            "<p class='card-text'>"+ data.iterations[0].members[j].name +"</p></div></div>").appendTo(row); 
-        }                          
-    }*/
     mytable.appendTo("#showPoints");	                
 }
 
@@ -142,7 +121,9 @@ $(document).ready(function(){
         $(this).click(function() {
             var attribute = this.getAttribute("value");
             number.value = attribute;
-            //alert(number.value);
         })
     })
 });
+
+
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/card.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+   <script
+src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../js/showCards.js"></script>
+</head>
+  <body>
+    <div id="container">  
+            <h1>Estimate now</h1>
+            <p style="margin-left: 10%;">Please select a number from left side and submit vote button</p>                     
+
+            <div id="left">
+            <div id="showPoints" class="scrollable" style="display: none;"></div>
+                <div id="showCards">
+                    <table>
+                        <tr>
+                              <th><a href="#" class="card bg-info text-white" style="width:150px;height:200px">
+                                    <div class="card-body" value="1">1</div>
+                                </a></th>
+                              <th><a href="#"  class="card bg-info text-white" style="width:150px;height:200px">
+                                    <div class="card-body" value="2">2</div>
+                              </a></th> 
+                              <th><a href="#" class="card bg-info text-white" style="width:150px;height:200px">
+                                    <div class="card-body" value="3">3</div>
+                              </a></th>
+                              <th><a href="#"  class="card bg-info text-white" style="width:150px;height:200px">
+                                    <div class="card-body" value="5">5</div>
+                              </a></th>                             
+                            </tr>
+                            <tr>
+                              <td><a href="#"  class="card bg-info text-white" style="width:150px;height:200px">
+                                    <div class="card-body" value="8">8</div>
+                              </a></td>
+                              <td><a href="#"  class="card bg-info text-white" style="width:150px;height:200px">
+                                    <div class="card-body" value="13">13</div>
+                              </a></td>
+                              <td><a href="#"  class="card bg-info text-white" style="width:150px;height:200px">
+                                    <div class="card-body" value="21">21</div>
+                              </a></td>
+                              <th><a href="#"  class="card bg-info text-white" style="width:150px;height:200px">
+                                    <div class="card-body" value="34">34</div>
+                              </a></th>                       
+                            </tr>
+                          </table>   
+                        <br>
+                        <p style="text-align: center;">Looking for more numbers, it's time to break user story</p> 
+                </div>
+                </div>
+            <div id="right">
+                    <script>
+                            $( document ).ready(function() {
+                            $("#id").val($.urlParam('id'));
+                            $("#scrum").val($.urlParam('scrum'));
+                            $("#story").val($.urlParam('story'));
+                            $("#url").val("localhost:4001/ShowCards.html?id="+$.urlParam('id')
+                            +"&scrum="+$.urlParam('scrum')+"&story="+$.urlParam('story'));
+                           // +"&count="+$.urlParam('count'));
+                            });
+                    </script>
+                <hr>
+                <input id="id" type="hidden" value="" name="id" readonly>
+                <input id="number" type="hidden" value="" name="number" readonly>
+
+                <label for="count"><b>Total number of peple joined</b></label>
+                <input id="count" type="text" value="" name="count" readonly>
+
+                <label for="scrum"><b>Scrum Name</b></label>
+                <input id="scrum" type="text" value="" name="scrum" readonly>
+
+                <label for="story"><b>User Story</b></label>
+                <input id="story" type="text" value="" name="story" readonly>
+
+                <label for="member"><b>Team Member</b></label>
+                <input id="member" type="text" value="" name="member" >
+
+                <label for="url"><b>URL to share</b></label>
+                <input id="url" type="text" value="" name="url" readonly>  
+
+                <div class="clearfix">
+                <button id="estmtBtn" class="signupbtn">Vote</button>
+                </div>
+            </div>
+  
+    </div>
+</body>
+</html>
+

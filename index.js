@@ -14,7 +14,6 @@ app.use(express.static('public/css'));
 app.use(express.static('public/html'));
 app.use(express.static('public/js'));
 
-// app.use(express.static(path.join(__dirname, 'public')));
 
 // Socket setup & pass server
 var io = socket(server);
@@ -22,7 +21,6 @@ var io = socket(server);
 //Declare global variable
 var globalData;
 var count = 0;
-
 
 function getConnectedList ()
 {
@@ -44,17 +42,12 @@ io.on('connection', (socket) => {
     socket.on('createSession', function(data){
         console.log("Session Creation request ");
         addSessionDatatoList(data);
-       // data.session.iteration.count = count + 1;
-       // count = data.session.iteration.count;
-        //console.log("count "+ count);
         io.sockets.emit('openSession', data);
     }); 
     //Event Listener for Join Session 
     socket.on('submitEstimate', function(data){
         console.log("Caught submit estimate event");
         addMemberDatatoList(data);
-        //console.log("Name:"+ data.session.iteration.member.name);
-       // console.log("Estimate:"+data.session.iteration.member.point);
         io.sockets.emit('showEstimate', globalData);
     });
 });
@@ -79,7 +72,6 @@ function addSessionDatatoList(data)
             if(globalData.sessions[i].id == data.sessions[0].id)
             {
                 console.log('Existing session');
-                //globalData.sessions[i].iterations[0].members.push(data.sessions[0].iterations[0].members[0]);
                 isNewSession = false;
             }
         }

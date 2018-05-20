@@ -91,6 +91,9 @@ function createTable(data){
   
     $('#showCards').hide();
     $('#showPoints').css('display', 'inline-block');
+    $('#lock').css('display', 'inline-block');
+    
+    $('#submt').hide();
     $('#showPoints').html('');
 
     var mytable = $('<table></table>').attr({ id: "basicTable" });

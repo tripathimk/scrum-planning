@@ -26,13 +26,13 @@ hr {
 button {
   background-color: #4CAF50;
   color: white;
-  padding: 14px 20px;
+  padding: 5px 10px;
   border: none;
   cursor: pointer;
   width: 30%;
   opacity: 0.9;
   margin:0 auto;
-  display:block;
+  display: inline-block;
 }
 
 button:hover {
